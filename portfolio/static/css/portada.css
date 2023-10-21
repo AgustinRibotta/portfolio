@@ -1,0 +1,223 @@
+.card {
+    border: none;
+    border-radius: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 18px;
+    color: #666;
+}
+
+.btn {
+    font-size: 16px;
+}
+
+/* Cambiar el color de fondo del botón al pasar el mouse */
+.btn:hover {
+    background-color: #6c757d;
+}
+
+/* Estilos para los íconos */
+i {
+    font-size: 24px;
+}
+
+/* Aplica la escala de grises a los iconos de los botones */
+.grayscale-icon {
+    filter: grayscale(100%);
+}
+
+/* Aplica la escala de grises al texto de los botones */
+.grayscale-button {
+    filter: grayscale(100%);
+}
+
+/* Estilos para las habilidades */
+.skill {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.skill img {
+    max-width: 100px;
+}
+
+.skill-description {
+    display: none;
+}
+
+/* Estilos para el botón de mostrar/ocultar */
+#toggle-button {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#toggle-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category {
+    color: #424344;
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.skill {
+    text-align: center;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    height: 70px;
+
+}
+
+.skill:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+.skill img {
+    max-width: 80px;
+    max-height: 40px;
+}
+
+.skill-description {
+    margin: 10px 0;
+    font-size: 1px;
+}
+
+.toggle-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+    padding: 3px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #9b9b9b;
+}
+
+
+
+/* Estilo base para las tarjetas de proyecto */
+.project-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Filtros */
+.filter-button {
+    cursor: pointer;
+    margin: 10px;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Estilos para proyectos activos y no activos */
+.active-filter {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.inactive-filter {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+/* Clase para ocultar proyectos que no están seleccionados */
+.hidden-project {
+    display: none;
+}
+
+
+.filter-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: none;
+}
+
+.filter-button.active {
+    background-color: #7c7c7c;
+}
+
+#seccion1,
+#seccion2,
+#seccion3 #contacto {
+    margin-top: 80px;
+    /* Ajusta el valor según sea necesario */
+}
+
+#seccion1 {
+    background-color: #f3f3f3;
+    /* Cambia el color de fondo a tu elección */
+    padding: 40px;
+    /* Agrega espaciado interior */
+}
+
+#seccion2 {
+    background-color: #eaeaea;
+    /* Cambia el color de fondo a tu elección */
+    padding: 40px;
+    /* Agrega espaciado interior */
+}
+
+#seccion3 {
+    background-color: #f3f3f3;
+    /* Cambia el color de fondo a tu elección */
+    padding: 40px;
+    /* Agrega espaciado interior */
+}
+
+#contacto {
+    background-color: #f3f3f3;
+    /* Cambia el color de fondo a tu elección */
+    padding: 40px;
+    /* Agrega espaciado interior */
+}
