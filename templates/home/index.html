@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block blockTitel %} Agustin Ribotta {% endblock blockTitel %}
+
+
+{% block body %}
+<!-- Inicio portada -->
+<div id='seccion1' class="container " style="margin-top: 80px; background-color: #468189 ">
+    <div class="  mb-5  ">
+        <div class="row g-0">
+            <div class="col-md-4" style="background-color: #f4e9cd">
+
+
+                <img src="{{first.img.url}}" class="img-fluid" alt="Perfil" style="max-width: 100%; height: auto;">
+
+            </div>
+            <div class="col-md-8" style="background-color: #f4e9cd">
+                <div class="card-body">
+                    {% for a in first.content.all %}
+                    <h1 style="color: #031926" class="card-title">{{a.title}}</h1>
+
+                    <p style="color: #031926" class="card-text">
+                        {{a.text | safe}}
+                    </p>
+                    {% endfor %}
+                    <div class="mt-4">
+
+                        {% for c in networck %}
+
+                        {% if c.urls %}
+
+
+                        <a style="color: #031926" href="{{ c.urls }}" target="_blank" class="btn me-3 ">
+                            <i class=""></i> {{c.title | safe}}
+                        </a>
+                        {% elif c.mail %}
+                        <a style="color: #031926" href="mailto:{{ c.mail }}" target="_blank" class="btn me-3 ">
+                            <i class=""></i> {{c.title | safe}}
+                        </a>
+                        {% elif c.phone%}
+                        <a style="color: #031926" href="tel:{{ c.phone }}" target="_blank" class="btn me-3 ">
+                            <i class=""></i> {{c.title | safe}}
+                        </a>
+                        {% else %}
+                        <a style="color: #031926" href="{{ c.cv.url }}" target="_blank" class="btn me-3 ">
+                            <i class=""></i> {{c.title | safe}}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Fin portada -->
+
+    <!-- Inicio Centro -->
+    <div id='seccion2' class=" text-center mt-4" style="background-color: #f4e9cd">
+        {% for b in second %}
+        <div class="row justify-content-center">
+
+            <h3 style="color: #031926" class="skill-category"> {{b.title}}</h3>
+
+            {% for a in b.content.all %}
+            <div class="col-md-2 mb-3">
+                <div class="skill" style="background-color: #77aca2">
+                    <img src="{{a.img.url}}" alt="Django">
+                    <p style="color: #031926">{{a.title}}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Fin Centro -->
+
+    <!-- Inicio Repositorio -->
+    <div id='seccion3' class=" text-center mt-4" style="background-color: #f4e9cd">
+
+        <h2 style="color: #031926" class="skill-category">{{thir.title}}</h2>
+        <div class="btn-group mb-3" role="group" aria-label="Filtros">
+            {% for d in thir.filter.all %}
+            <button style="color: #031926" type="button" class="btn   filter-button" data-filter="todos">{{d.title}}
+            </button>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for c in thir.content.all %}
+            <div class="col-md-4 mb-4">
+                <div class="card project-card" style="background-color: #77aca2">
+                    <img src="{{c.img.url}}" class="card-img-top" alt="Proyecto 1">
+                    <div class="card-body">
+                        <h5 style="color: #031926" class="card-title">{{c.title}}</h5>
+                        <p style="color: #031926" class="card-text">{{c.text}}</p>
+                    </div>
+                    <a style="color: #468189" href="{{c.urls}}" target="_blank" class="btn me-3 ">Ver
+                        Proyecto</a>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Fin Repositorio -->
+
+    <!-- inicio Contacto -->
+    <div id="contacto" class=" mt-5" style="background-color: #f4e9cd">
+
+        <h2 class="card-title">¡Contáctame!</h2>
+        <form action="{% url 'home_app:contact' %}" method="POST">{% csrf_token %}
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Tu Nombre</label>
+                <input type="text" class="form-control" name="full_name" id="id_full_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Tu Correo Electrónico</label>
+                <input type="text" class="form-control" name="email" id="id_email" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" name="messagge" id="id_messagge" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn  ">Enviar</button>
+        </form>
+
+        <!-- Agregar enlaces a redes sociales y descarga de CV -->
+        <div class="social-links mt-4">
+            {% for c in networck %}
+
+            {% if c.urls %}
+            <a href="{{ c.urls }}" target="_blank" class="btn  ">
+                <i class="  "></i> {{c.title | safe}}
+            </a>
+            {% elif c.mail %}
+            <a href="mailto:{{ c.mail }}" target="_blank" class="btn  ">
+                <i class=" "></i> {{c.title | safe}}
+            </a>
+            {% elif c.phone%}
+            <a href="tel:{{ c.phone }}" class="btn  ">
+                <i class=" "></i> {{c.title | safe}}
+            </a>
+            {% else %}
+            <a href="{{ c.cv.url }}" class="btn ">
+                <i class=" "></i> {{c.title | safe}}
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+<!-- Fin Contacto -->
+
+
+{% endblock body %}

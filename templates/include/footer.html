@@ -1,0 +1,35 @@
+<!-- Footer -->
+<footer>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <p>&copy; 2023 Agustin Ribotta. Todos los derechos reservados.</p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-11">
+            <div class="footer-links">
+                {% for c in networck %}
+                {% if c.urls %}
+                <a href="{{ c.urls }}" target="_blank">
+                    <i class="fab fa-linkedin"></i> {{c.title | safe}}
+                </a>
+                {% elif c.mail %}
+                <a href="mailto:{{ c.mail }}" target="_blank">
+                    <i class="fab fa-github"></i> {{c.title | safe}}
+                </a>
+                {% elif c.phone%}
+                <a href="tel:{{ c.phone }}">
+                    <i class="fas fa-envelope"></i> {{c.title | safe}}
+                </a>
+                {% else %}
+                <a href="{{ c.cv.url }">
+                    <i class="fas fa-phone"></i> {{c.title | safe}}
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</footer>
