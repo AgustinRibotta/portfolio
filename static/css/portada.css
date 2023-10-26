@@ -216,3 +216,50 @@ i {
 .nombre {
     color: #00ADB5;
 }
+
+.project-description {
+    font-size: 14px;
+    /* Establece el tamaño de fuente deseado */
+    height: 60px;
+    /* Altura máxima para el texto */
+    overflow: hidden;
+}
+
+.project-description:hover {
+    height: auto;
+    /* Muestra todo el texto al pasar el mouse por encima */
+}
+
+.read-more {
+    display: none;
+    /* Oculta el botón "Ver Proyecto" por defecto */
+}
+
+.project-card:hover .read-more {
+    display: block;
+    /* Muestra el botón "Ver Proyecto" al pasar el mouse por encima de la tarjeta */
+}
+
+.truncate-text {
+    max-height: 100px;
+    /* Establece la altura máxima deseada */
+    overflow: hidden;
+    position: relative;
+}
+
+.truncate-text::after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #468189;
+    /* El fondo debe coincidir con el fondo del contenedor */
+}
+
+.read-more-button {
+    display: none;
+    background: #468189;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

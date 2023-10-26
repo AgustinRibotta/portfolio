@@ -19,7 +19,10 @@
             <div class="col-md-8" style="background-color: #f4e9cd">
                 <div class="card-body">
                     {% for a in first.content.all %}
+
+                    {% if a.title %}
                     <h1 style="color: #031926" class="card-title">{{a.title}}</h1>
+                    {% endif %}
 
                     <p style="color: #031926" class="card-text">
                         {{a.text | safe}}
@@ -62,14 +65,12 @@
     <div id='seccion2' class=" text-center mt-4" style="background-color: #f4e9cd">
         {% for b in second %}
         <div class="row justify-content-center">
-
-            <h3 style="color: #031926" class="skill-category"> {{b.title}}</h3>
-
+            <h4 style="color: #468189" class="skill-category"> {{b.title}}</h4>
             {% for a in b.content.all %}
-            <div class="col-md-2 mb-3">
-                <div class="skill" style="background-color: #77aca2">
+            <div class="col-md-1 mb-1">
+                <div class="skill" style="display: inline-block; background-color: #f4e9cd; border: none;">
                     <img src="{{a.img.url}}" alt="Django">
-                    <p style="color: #031926">{{a.title}}</p>
+                    <p style="color: #468189">{{a.title}}</p>
                 </div>
             </div>
             {% endfor %}
@@ -80,31 +81,65 @@
     <!-- Fin Centro -->
 
     <!-- Inicio Repositorio -->
-    <div id='seccion3' class=" text-center mt-4" style="background-color: #f4e9cd">
-
-        <h2 style="color: #031926" class="skill-category">{{thir.title}}</h2>
+    <div id='seccion3' class="text-center mt-4" style="background-color: #f4e9cd">
+        {% for e in thir %}
+        <h2 style="color: #031926" class="skill-category">{{e.title}}</h2>
         <div class="btn-group mb-3" role="group" aria-label="Filtros">
-            {% for d in thir.filter.all %}
-            <button style="color: #031926" type="button" class="btn   filter-button" data-filter="todos">{{d.title}}
-            </button>
-            {% endfor %}
+            {# Puedes mostrar los filtros aquí si es necesario #}
         </div>
         <div class="row">
-            {% for c in thir.content.all %}
-            <div class="col-md-4 mb-4">
+            {% for c in e.content.all %}
+            <div class="col-md-3 mb-2">
                 <div class="card project-card" style="background-color: #77aca2">
-                    <img src="{{c.img.url}}" class="card-img-top" alt="Proyecto 1">
+                    <img src="{{c.img.url}}" class="card-img-top" alt="{{c.title}}" width="300" height="200">
                     <div class="card-body">
                         <h5 style="color: #031926" class="card-title">{{c.title}}</h5>
-                        <p style="color: #031926" class="card-text">{{c.text}}</p>
+                        <p style="color: #031926; text-align: justify;" class="card-text">{{c.text | safe }}</p>
                     </div>
-                    <a style="color: #468189" href="{{c.urls}}" target="_blank" class="btn me-3 ">Ver
-                        Proyecto</a>
+                    <a style="color: #468189; border: 1px solid #468189; padding: 5px 10px; text-decoration: none;"
+                        href="{{c.urls}}" target="_blank" class="btn">Ver Proyecto</a>
                 </div>
-
             </div>
             {% endfor %}
         </div>
+        {% endfor %}
+
+        <!-- inicio de bloque de paginación -->
+        {% if thir.has_other_pages %}
+        <div class="cell text-center">
+            <nav aria-label="Navegación de página">
+                <ul class="pagination justify-content-center">
+                    {% if thir.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" style="display: inline-block; background-color: #f4e9cd; border: none;"
+                            href="?page=1" aria-label="Primera Página">&laquo; Primera</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" style="display: inline-block; background-color: #f4e9cd; border: none;"
+                            href="?page={{ thir.previous_page_number }}" aria-label="Página Anterior">Anterior</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item disabled">
+                        <span class="page-link" style="display: inline-block; background-color: #f4e9cd; border: none;">
+                            Página {{ thir.number }} de {{ thir.paginator.num_pages }}
+                        </span>
+                    </li>
+
+                    {% if thir.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" style="display: inline-block; background-color: #f4e9cd; border: none;"
+                            href="?page={{ thir.next_page_number }}" aria-label="Página Siguiente">Siguiente</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" style="display: inline-block; background-color: #f4e9cd; border: none;"
+                            href="?page={{ thir.paginator.num_pages }}" aria-label="Última Página">Última &raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        {% endif %}
     </div>
     <!-- Fin Repositorio -->
 

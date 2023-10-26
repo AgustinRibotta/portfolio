@@ -31,10 +31,15 @@ class ContentFirstSection(models.Model):
         on_delete= models.CASCADE,
         related_name= 'content',
     )
-    title = models.CharField("Title", max_length=50)
+    title = models.CharField(
+        "Title",
+        max_length=50,
+        blank=True,
+        null=True,
+        )
     text = RichTextUploadingField(
         'text',
-        default=True,
+        blank=True,
         null=True 
     )
     
@@ -73,7 +78,12 @@ class ContentSecondSection(models.Model):
         on_delete= models.CASCADE,
         related_name= 'content',
     )
-    title = models.CharField("Title", max_length=50)
+    title = models.CharField(
+        "Title", 
+        max_length=50,
+        blank=True,
+        null=True,
+    )
     img = models.ImageField('Img', upload_to='repo', height_field=None, width_field=None, max_length=None)
     
     class Meta:
@@ -83,7 +93,7 @@ class ContentSecondSection(models.Model):
         
     def __str__(self):
         
-        return self.title
+        return str(self.id) + str(self.title)
     
 class ThirdSection (models.Model):
     """ Model that will be in charge of painting the information in the Third section """
@@ -111,7 +121,11 @@ class ContentThirdSection(models.Model):
     )
     img = models.ImageField('Img', upload_to='repo', height_field=None, width_field=None, max_length=None)
     title = models.CharField("Title", max_length=50)
-    text = models.CharField('Text', max_length=250)
+    text = RichTextUploadingField(
+        'text',
+        blank=True,
+        null=True 
+    )
     urls = models.URLField("Url", max_length=200)
     
     class Meta:
@@ -170,7 +184,11 @@ class Networck(models.Model):
         null= True,
         blank= True,
     )
-    cv = models.FileField(upload_to="uploads/")
+    cv = models.FileField(
+        upload_to="uploads/",
+        null= True,
+        blank= True,
+    )
 
     class Meta:
         

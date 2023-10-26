@@ -30,24 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// JavaScript code in filter.js
-
-// Función para filtrar proyectos por categoría
-function filterProjects(category) {
-    // Obtener todos los elementos de proyecto
-    const projectElements = document.querySelectorAll('.project-card');
-
-    projectElements.forEach((element) => {
-        const categories = element.getAttribute('data-categories').split(' ');
-
-        if (category === 'todos' || categories.includes(category)) {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none';
-        }
-    });
-}
-
 // Función para resaltar el botón de filtro seleccionado
 function highlightButton(button) {
     const filterButtons = document.querySelectorAll('.btn-filter');
@@ -82,3 +64,5 @@ $(document).ready(function () {
         }, 500);
     });
 });
+
+
