@@ -1,8 +1,8 @@
 <!-- Footer -->
-<footer>
 
-    <div class="row">
-        <div class="col-lg-12">
+<footer>
+    <div class="row mt-5">
+        <div class="col-lg-12 text-center">
             <p>&copy; 2023 Agustin Ribotta. Todos los derechos reservados.</p>
         </div>
     </div>
@@ -23,7 +23,7 @@
                     <i class="fas fa-envelope"></i> {{c.title | safe}}
                 </a>
                 {% else %}
-                <a href="{{ c.cv.url }">
+                <a href="{{ c.cv.url }}">
                     <i class="fas fa-phone"></i> {{c.title | safe}}
                 </a>
                 {% endif %}
@@ -31,5 +31,4 @@
             </div>
         </div>
     </div>
-
 </footer>
