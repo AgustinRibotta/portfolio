@@ -9,8 +9,8 @@
 <div class=" container  ">
     <div id="seccion1" class="row g-0 mt-5 fade-in">
         <!-- Bloque de la imagen con borde -->
-        <div class="col-md-4 border border-2 mb-3 rounded shadow text-center img">
-            <img src="{{ first.img.url }}" class="img-fluid rounded-circle" alt="Perfil" style="max-width: 100%;">
+        <div class="col-md-4 border border-2 mb-3 rounded shadow text-center img"
+            style="background: url('{{ first.img.url }}') no-repeat center center; background-size: cover;">
         </div>
 
         <!-- Bloque del texto y enlaces con borde y margen interior -->
@@ -129,22 +129,22 @@
 
     <!-- Inicio Contacto -->
     <div id="contacto" class="mt-5 fade-in ">
-        <h1>¡Contáctame!</h1>
+        <h1 class="section-title">¡Contáctame!</h1>
         <form action=" {% url 'home_app:contact' %}" method="POST" class="contact-form">
             {% csrf_token %}
             <div class="form-group">
-                <label for="nombre" class="form-label">Tu Nombre</label>
+                <label for="nombre" class="form-label section-title">Tu Nombre</label>
                 <input type="text" class="form-control" name="full_name" id="input_full_name" required>
             </div>
             <div class="form-group">
-                <label for="email" class="form-label">Tu Correo Electrónico</label>
+                <label for="email" class="form-label section-title">Tu Correo Electrónico</label>
                 <input type="email" class="form-control" name="email" id="input_email" required>
             </div>
             <div class="form-group">
-                <label for="mensaje" class="form-label">Mensaje</label>
+                <label for="mensaje" class="form-label section-title">Mensaje</label>
                 <textarea class="form-control" name="message" id="input_message" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-submit">Enviar</button>
+            <button type="submit" class="btn btn-secondary ">Enviar</button>
         </form>
 
 
@@ -152,7 +152,7 @@
         <div class="mt-4 mt-5">
             {% for c in networck %}
             <a href="{% if c.urls %}{{ c.urls }}{% elif c.mail %}mailto:{{ c.mail }}{% elif c.phone %}tel:{{ c.phone }}{% else %}{{ c.cv.url }}{% endif %}"
-                target="_blank" class="btn">
+                target="_blank" class="btn ">
                 {{ c.title | safe }}
             </a>
             {% endfor %}
