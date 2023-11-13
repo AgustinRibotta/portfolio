@@ -1,10 +1,12 @@
 from django.db import models
+# Models utils
+from model_utils.models import TimeStampedModel
 # Ckaeditor
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class FirstSection (models.Model):
-    """ Model that will be in charge of painting the information in the first section """
+    """ Model in charge of the first section """
     
     img = models.ImageField(
         "Cover Image", 
@@ -24,7 +26,7 @@ class FirstSection (models.Model):
     
     
 class ContentFirstSection(models.Model):
-    """ Stores the content of the First Section """
+    """ Model in charge of the conten first section """
 
     content = models.ForeignKey(
         FirstSection,
@@ -55,9 +57,12 @@ class ContentFirstSection(models.Model):
         
     
 class SecondSection (models.Model):
-    """ Model that will be in charge of painting the information in the Second section """
+    """Model in charge of the second section """
     
-    title = models.CharField('Title', max_length=50)
+    title = models.CharField(
+        'Title', 
+        max_length=50
+    )
     
     class Meta:
         
@@ -71,7 +76,7 @@ class SecondSection (models.Model):
 
 
 class ContentSecondSection(models.Model):
-    """ Stores the content of the Second Section """
+    """ Model in charge of the content second section """
 
     content = models.ForeignKey(
         SecondSection,
@@ -84,7 +89,13 @@ class ContentSecondSection(models.Model):
         blank=True,
         null=True,
     )
-    img = models.ImageField('Img', upload_to='repo', height_field=None, width_field=None, max_length=None)
+    img = models.ImageField(
+        'Img', 
+        upload_to='repo', 
+        height_field=None, 
+        width_field=None, 
+        max_length=None
+    )
     
     class Meta:
         
@@ -96,9 +107,12 @@ class ContentSecondSection(models.Model):
         return str(self.id) + str(self.title)
     
 class ThirdSection (models.Model):
-    """ Model that will be in charge of painting the information in the Third section """
+    """ Model in charge of the third section """
     
-    title = models.CharField('Title', max_length=50)
+    title = models.CharField(
+        'Title', 
+        max_length=50
+    )
     
     class Meta:
         
@@ -111,22 +125,34 @@ class ThirdSection (models.Model):
         return self.title
     
     
-class ContentThirdSection(models.Model):
-    """ Stores the content of the Third section """
+class ContentThirdSection(TimeStampedModel):
+    """ Model in charge of the content third section """
 
     content = models.ForeignKey(
         ThirdSection,
         on_delete= models.CASCADE,
         related_name= 'content',
     )
-    img = models.ImageField('Img', upload_to='repo', height_field=None, width_field=None, max_length=None)
-    title = models.CharField("Title", max_length=50)
+    img = models.ImageField(
+        'Img', 
+        upload_to='repo', 
+        height_field=None, 
+        width_field=None, 
+        max_length=None
+    )
+    title = models.CharField(
+        "Title", 
+        max_length=50
+    )
     text = RichTextUploadingField(
         'text',
         blank=True,
         null=True 
     )
-    urls = models.URLField("Url", max_length=200)
+    urls = models.URLField(
+        "Url", 
+        max_length=200
+    )
     
     class Meta:
         
@@ -140,14 +166,17 @@ class ContentThirdSection(models.Model):
     
 
 class FilterThirSection(models.Model):
-    """ Stores the content of the Filter Thir section """
+    """  Model filters for projects  """
 
     filter = models.ForeignKey(
         ThirdSection,
         on_delete= models.CASCADE,
         related_name= 'filter',
     )
-    title = models.CharField("Title", max_length=50)
+    title = models.CharField(
+        "Title", 
+        max_length=50
+    )
     
     class Meta:
         
@@ -160,7 +189,7 @@ class FilterThirSection(models.Model):
     
         
 class Networck(models.Model):
-    
+    """  Model  for Networck  """
     
     title = RichTextUploadingField(
         'Title',
@@ -203,12 +232,16 @@ class Networck(models.Model):
     
 
 class Contact(models.Model):
+    """  Model  for Contact  """
     
     full_name = models.CharField(
         'Name',
         max_length=60
     )
-    email = models.CharField(max_length=200,)
+    email = models.CharField(
+        max_length=200,
+    )
+    
     messagge = models.TextField()
     
     class Meta:
