@@ -1,7 +1,7 @@
 
 ## Portfolio README
 
-¡Hola! 👋 Soy [Tu Nombre], un apasionado desarrollador web especializado en el ecosistema de Python, Django, Django REST Framework, y PostgreSQL. Además, tengo experiencia en el despliegue y gestión de aplicaciones en la nube utilizando AWS.
+¡Hola! 👋 Soy Agustin Ribotta, un apasionado desarrollador web especializado en el ecosistema de Python, Django, Django REST Framework, y PostgreSQL. Además, tengo experiencia en el despliegue y gestión de aplicaciones en la nube utilizando AWS.
 
 ![Portada](https://i.ibb.co/bv9LgJM/Portada.png)
 
