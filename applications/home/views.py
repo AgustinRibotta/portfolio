@@ -1,7 +1,6 @@
 # Djeango
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 # Forms
 from .forms import ContacForm
@@ -41,15 +40,16 @@ class FooterView(TemplateView):
     
     def get_context_data(self, **kwargs):
          
-        context = super(HomeView, self).get_context_data(**kwargs)
+        context = super(FooterView, self).get_context_data(**kwargs)
         
         # Context of Networck
         context['networck'] =  Networck.objects.all()
         return context
     
     
+
+# Register contacto
 class ContacCreateView(CreateView):
-    """ View to generate the contact form """
     
     form_class = ContacForm
     success_url = '.'
