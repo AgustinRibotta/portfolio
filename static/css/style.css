@@ -1,0 +1,70 @@
+.navbar-toggler {
+    background-color: #6c757d;
+    border-radius: 15%;
+}
+
+.header {
+    margin-top: 20px ;
+    background: linear-gradient(to bottom, 
+    #212529 0%, 
+    #212529 20%, 
+    #6c757d 60%, 
+    #c9c9c9 80%, 
+    #ffffff 100%);
+}
+
+h1 {
+    font-size: 48pt;
+}
+
+h3 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 32pt;
+    position: relative;
+    display: inline-block; 
+    padding-bottom: 5px; 
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 120%; 
+    height: 3px; 
+    background-color: #000; 
+    transform: translateX(0); 
+}
+
+.links {
+    text-decoration: none;
+    color: #0c0c0c;
+} 
+
+.links p {
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.links:hover p {
+    color: #007bff; 
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.links img {
+    transition: transform 0.3s ease;
+}
+
+.links:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño del ícono al pasar el mouse */
+}
+
+
+

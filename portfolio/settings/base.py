@@ -1,29 +1,18 @@
-from django.core.exceptions import ImproperlyConfigured
-import json
-
-
+from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from unipath import Path
-BASE_DIR = Path(__file__).ancestor(3)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-with open("secret.json") as f:
-    secret = json.loads(f.read())
-
-def get_secret(secret_name, secrets=secret):
-    try:
-        return secrets[secret_name]
-    except:
-        msg = "la variable %s no existe" % secret_name
-        raise ImproperlyConfigured(msg)
-    
-
-SECRET_KEY = get_secret('SECRET_KEY')
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config("SECRET_KEY")
 
 # Application definition
 
-BASE_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,21 +21,13 @@ BASE_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS =[
-    'applications.home',
-    
-    
+LOCAL_APPS = [
+    'apps.home',
 ]
 
-THIRD_PARTY_APPS = [
-    'bootstrap5',
-    'ckeditor',
-    'ckeditor_uploader',
-    
-]
+THRY_PARTY_APPS = []
 
-INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_PARTY_APPS
-
+INSTALLED_APPS += LOCAL_APPS + THRY_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,7 +44,7 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.child('templates')],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +60,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -97,17 +78,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
+# https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
