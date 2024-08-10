@@ -44,17 +44,17 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active text-secondary" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link active text-secondary" aria-current="page" href="#peronal">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#section-1i">Sobre mí</a>
+                        <a class="nav-link text-secondary" href="#stack">Sobre mí</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-secondary" href="#proyectos">Proyectos</a>
                     </li>
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link text-secondary" href="#colaboraciones">Colaboraciones</a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a class="nav-link text-secondary" href="#certificaciones">Certificaciones</a>
                     </li>
@@ -69,7 +69,7 @@
                     {% for icon in principal.imgs.all %}
                     <a href="{{icon.url}}" target="_blank" class="mx-2 links">
                         <img src="{{icon.img.url}}" alt="Ícono de GitHub" width="40px" height="40px"
-                            class="social-icon">
+                            >
                     </a>
                     {% endfor %}
                 </div>
@@ -109,7 +109,7 @@
     </div>
 
     <!-- Seccion principal  -->
-    <section class="section-1">
+    <section id="peronal" class="section-1">
         <div class="container ">
             <div class="row align-items-center justify-content-center">
 
@@ -127,7 +127,7 @@
                     <div class="d-flex justify-content-center mt-4">
                         {% for icon in principal.imgs.all %}
                         <a href="{{icon.url}}" target="_blank" class="mx-4 links">
-                            <img src="{{icon.img.url}}" alt="Ícono de GitHub" width="50px" height="50px">
+                            <img src="{{icon.img.url}}" alt="Ícono de {{icon.name}}" width="50px" height="50px">
                             <p class="mb-0">{{icon.name}}</p>
                         </a>
                         {% endfor %}
@@ -138,22 +138,22 @@
     </section>
 
     <!-- Datos personales y Stack -->
-    <main class="main">
+    <main id="stack" class="main">
         <div class="container">
             <div class="row align-items-center">
+                <h2 class="section-title">{{sobre_mi.name}}</h2>
+                <p class="text-stack mt-4">{{sobre_mi.description}}</p>
                 <!-- Columna izquierda -->
-                <div class="col-lg-6 col-md-12 text-left">
-                    <h2 class="section-title">{{sobre_mi.name}}</h2>
-                    <p class="mt-4">{{sobre_mi.description}}</p>
+                <div class="col-lg-12 col-md-12 text-left">
 
                     <!-- Apartado Stack -->
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h3 class="section-subtitle">{{stack.name}}</h3>
+                            <h2 class=" section-title">{{stack.name}}</h3>
                             <div class="icon-grid mt-4">
                                 {% for icon in stack.imgs.all %}
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{icon.img.url}}" alt="Ícono de Python" class="tech-icon me-2">
+                                    <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon me-2">
                                     <p class="mb-0">{{icon.name}}</p>
                                 </div>
                                 {% endfor %}
@@ -161,7 +161,7 @@
                             <div class="icon-grid mt-4">
                                 {% for icon in herramientas.imgs.all %}
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{icon.img.url}}" alt="Ícono de Arch" class="tech-icon me-2">
+                                    <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon me-2">
                                     <p class="mb-0">{{icon.name}}</p>
                                 </div>
                                 {% endfor %}
@@ -172,11 +172,11 @@
                     <!-- Apartado Complementos -->
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h3 class="section-subtitle">{{complementos.name}}</h3>
+                            <h3 class="section-title">{{complementos.name}}</h3>
                             <div class="icon-grid mt-4 mb-5">
                                 {% for icon in complementos.imgs.all %}
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{icon.img.url}}" alt="Ícono de CSS" class="tech-icon me-2">
+                                    <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon me-2">
                                     <p class="mb-0">{{icon.name}}</p>
                                 </div>
                                 {% endfor %}
@@ -186,24 +186,24 @@
                 </div>
 
                 <!-- Columna derecha -->
-                <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
+                {% comment %} <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
                     <img src="https://picsum.photos/id/237/400/400" alt="Imagen Descriptiva"
                         class="img-fluid rounded shadow">
-                </div>
+                </div> {% endcomment %}
             </div>
         </div>
     </main>
 
 
     <!-- Mis Proyectos -->
-    <section class="section-2">
+    <section id='proyectos' class="section-2">
         <div class="container">
             <h2 class="section-title text-center mb-4">Mis Proyectos</h2>
             <div class="row gap-4 justify-content-center">
 
                 <!-- Tarjeta 1 -->
                 <div class="col-md-3 mb-3">
-                    <div class="cards shadow-sm">
+                    <div class="cards ">
                         <img src="../assets/img/8cuKqx5.png" class="card-img-top" alt="Imagen del Proyecto 1">
                         <div class="card-body text-center mt-3">
                             <div class="d-flex flex-wrap gap-1 justify-content-center mb-3">
@@ -299,7 +299,7 @@
     </section> -->
 
     <!-- Certificaciones -->
-    <section class="section-4">
+    <section id="certificaciones" class="section-4">
         <div class="container text-center">
             <h2>{{ certificaciones.name }}</h2>
             <div class="row mt-5">
@@ -309,7 +309,7 @@
                     <div class="certification-card">
                         <div class="card-body" data-bs-toggle="modal" data-bs-target="#imageModal"
                             data-img-src="{{ certificacion.img.url }}" data-validation-url="{{ certificacion.url }}">
-                            <img src="{{ certificacion.img.url }}" alt="Certificación">
+                            <img src="{{ certificacion.img.url }}" alt="{{ certificacion.name }}">
                         </div>
                     </div>
                 </div>
@@ -334,11 +334,13 @@
             </div>
         </div>
     </div>
+
+   <!-- Footer -->
     <footer class="img-footer">
         <div class="d-flex justify-content-center mt-4">
             {% for icon in principal.imgs.all %}
             <a href="{{icon.url}}" target="_blank" class="mx-2 links">
-                <img src="{{icon.img.url}}" alt="Ícono de GitHub" width="40" height="40">
+                <img src="{{icon.img.url}}" alt="Ícono de {{icon.name}}" width="40" height="40">
             </a>
             {% endfor %}
             <button type="button" class="btn btn-outline-light mb-1 mx-2" data-bs-toggle="modal"

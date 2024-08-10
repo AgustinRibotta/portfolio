@@ -1,6 +1,7 @@
 /* ---------------------------------- */
 /* Fondo General de la Página */
 /* ---------------------------------- */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,6 +11,7 @@ body {
 /* ---------------------------------- */
 /* Fondo Principal */
 /* ---------------------------------- */
+
 main {
     color: white;
     padding: 40px 0;
@@ -25,6 +27,7 @@ main {
 /* ---------------------------------- */
 /* Fondo de Sección */
 /* ---------------------------------- */
+
 .section-1,
 .section-2,
 .section-3,
@@ -35,140 +38,35 @@ main {
 
 }
 
-
-
-.section-1 {
-    background-image: url('../images/sup.svg');
-
-}
-
-.section-2 {
-    background-image: url('ruta/a/tu/imagen2.jpg');
-}
-
-.section-3 {
-    background-image: url('ruta/a/tu/imagen3.jpg');
-}
-
-
-.img-footer {
-
-    background-color: #0c0c0c;
-    min-height: 100px;
-    padding: 10px;
-}
-
 /* ---------------------------------- */
-/* Diseño del Contenedor */
+/* General  */
 /* ---------------------------------- */
+
 .container {
     width: 90%;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* ---------------------------------- */
-/* Estilo para los iconos */
-/* ---------------------------------- */
+h1 {
+    font-size: 48pt;
+    margin-bottom: 0.5rem;
+}
+
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* Bordes redondeados para los contenedores de imagen */
-.img-container,
-.img-fluid {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-
-}
-
-/* Contenedor del ícono y texto */
-.icon-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-}
-
-/* Tamaño y efectos de hover en íconos */
-.tech-icon {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
-}
-
-.tech-icon:hover {
-    transform: scale(1.2);
-    filter: brightness(1.1);
-}
-
 /* ---------------------------------- */
-/* Estilo de los enlaces */
+/* Navbar   */
 /* ---------------------------------- */
-.links {
-    text-decoration: none;
-    color: #0c0c0c;
-}
 
-.links p {
-    margin: 0;
-    transition: color 0.3s ease;
-}
-
-.links:hover p {
-    color: #007bff;
-}
-
-.links img {
-    transition: transform 0.3s ease;
-}
-
-.links:hover img {
-    transform: scale(1.1);
-}
-
-/* ---------------------------------- */
-/* Navbar Toggler */
-/* ---------------------------------- */
 .navbar-toggler {
     background-color: #6c757d;
     border-radius: 15%;
 }
 
-/* ---------------------------------- */
-/* Transición suave para el offcanvas */
-/* ---------------------------------- */
-.offcanvas {
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(5px);
-}
-
-/* ---------------------------------- */
-/* Hover effects en los íconos sociales */
-/* ---------------------------------- */
-.social-icon {
-    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.3);
-    filter: brightness(1.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* ---------------------------------- */
-/* Efecto de hover en los enlaces del menú */
-/* ---------------------------------- */
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
@@ -193,8 +91,42 @@ img {
 }
 
 /* ---------------------------------- */
-/* Botón de contacto */
+/* Offcanvas Menu   */
 /* ---------------------------------- */
+
+
+.offcanvas {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.links {
+    text-decoration: none;
+    color: #0c0c0c;
+}
+
+.links p {
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.links:hover p {
+    color: #007bff;
+}
+
+.links img {
+    transition: transform 0.3s ease;
+}
+
+.links:hover img {
+    transform: scale(1.1);
+}
+
+
+/* ---------------------------------- */
+/* Contact Modal   */
+/* ---------------------------------- */
+
 .btn-outline-light {
     border: 1px solid #fff;
     color: #fff;
@@ -207,33 +139,18 @@ img {
 }
 
 /* ---------------------------------- */
-/* Header */
+/* Seccion principal   */
 /* ---------------------------------- */
-.header {
-    margin-top: 20px;
-    background: linear-gradient(to bottom,
-            #212529 0%,
-            #212529 20%,
-            #6c757d 60%,
-            #c9c9c9 80%,
-            #ffffff 100%);
+
+.section-1 {
+    background-image: url('../images/sup.svg');
+
 }
 
 /* ---------------------------------- */
-/* Headings */
+/* Datos personales y Stack  */
 /* ---------------------------------- */
-h1 {
-    font-size: 48pt;
-    margin-bottom: 0.5rem;
-}
 
-h3 {
-    font-size: 24pt;
-}
-
-/* ---------------------------------- */
-/* Apartado sobre mí y Stack */
-/* ---------------------------------- */
 .section-title {
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -249,32 +166,62 @@ h3 {
     padding-left: 0.5rem;
 }
 
+.tech-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 1.5s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.text-stack {
+    font-size: 18pt;
+}
+
+.tech-icon:hover {
+    transform: rotate(360deg);
+}
+
+.img-fluid {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+
+}
+
 /* ---------------------------------- */
-/* Estilo General para las Tarjetas */
+/* Mis Proyectos  */
 /* ---------------------------------- */
+
 .cards {
+    background-image: url('../images/blob-scene-haikei.svg');
     border-radius: 0.5rem;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
 }
 
-/* Efecto al pasar el ratón sobre la tarjeta */
+
 .cards:hover {
     transform: scale(1.01);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Animación para los íconos */
 .card-body img {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Efecto al pasar el ratón sobre los íconos */
 .card-body img:hover {
     transform: rotate(15deg);
 }
 
-/* Animación de entrada (opcional) */
+/* Animación de entrada */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -286,7 +233,6 @@ h3 {
         transform: translateY(0);
     }
 }
-
 
 /* Aplicar la animación de entrada a las tarjetas */
 .card:nth-child(1) {
@@ -301,7 +247,11 @@ h3 {
     animation: fadeIn 1s ease-in-out 0.6s forwards;
 }
 
-/* Estilos para las Tarjetas de Certificación */
+
+/* ---------------------------------- */
+/* Certificaciones  */
+/* ---------------------------------- */
+
 .certification-card {
     display: flex;
     flex-direction: column;
@@ -347,8 +297,9 @@ h3 {
 }
 
 /* ---------------------------------- */
-/* Modal */
+/* Modal para mostrar la imagen ampliada*/
 /* ---------------------------------- */
+
 .modal-dialog {
     max-width: 40%;
     margin: 1.75rem auto;
@@ -357,4 +308,15 @@ h3 {
 .modal-body img {
     width: 100%;
     height: auto;
+}
+
+/* ---------------------------------- */
+/* Footer */
+/* ---------------------------------- */
+
+.img-footer {
+
+    background-color: #0c0c0c;
+    min-height: 100px;
+    padding: 10px;
 }
