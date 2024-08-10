@@ -5,19 +5,21 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #e0e2e5;
-    /* Gris claro */
 }
 
 /* ---------------------------------- */
 /* Fondo Principal */
 /* ---------------------------------- */
 main {
-    background: #ffffff;
+    color: white;
     padding: 40px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 1200px;
+    background-image: url('../images/blob-scene-haikei.svg');
+    background-size: cover;
+
 }
 
 /* ---------------------------------- */
@@ -27,7 +29,33 @@ main {
 .section-2,
 .section-3,
 .section-4 {
+    min-height: 400px;
     padding: 40px 0;
+    background-size: cover;
+
+}
+
+
+
+.section-1 {
+    background-image: url('../images/sup.svg');
+
+}
+
+.section-2 {
+    background-image: url('ruta/a/tu/imagen2.jpg');
+}
+
+.section-3 {
+    background-image: url('ruta/a/tu/imagen3.jpg');
+}
+
+
+.img-footer {
+
+    background-color: #0c0c0c;
+    min-height: 100px;
+    padding: 10px;
 }
 
 /* ---------------------------------- */
@@ -54,14 +82,21 @@ img {
     overflow: hidden;
 }
 
-/* ---------------------------------- */
-/* Estilo de la cuadrícula de íconos */
-/* ---------------------------------- */
 .icon-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
     justify-content: center;
+    align-items: center;
+
+}
+
+/* Contenedor del ícono y texto */
+.icon-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
 }
 
 /* Tamaño y efectos de hover en íconos */
