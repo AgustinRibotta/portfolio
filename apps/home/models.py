@@ -6,7 +6,7 @@ import os
 # Create your models here.
 
 # Contact
-class Menssage   (models.Model):
+class Menssage (models.Model):
 
     name = models.CharField(_("Name"), max_length=100)
     email = models.EmailField(_("Email"), max_length=254)
@@ -34,6 +34,7 @@ def validate_file_extension(file):
         raise ValidationError('El archivo debe ser una imagen con extensión: jpg, jpeg, png o svg.')
 
 class Img(models.Model):
+    
     name = models.CharField(max_length=50)
     img = models.FileField(upload_to='images/', validators=[validate_file_size, validate_file_extension])
     url = models.URLField(_("URL"), max_length=200, blank=True, null=True)
@@ -48,10 +49,10 @@ class Img(models.Model):
 
 # Cards
 class Card(models.Model):
-
+    front_page = models.ForeignKey("Img", verbose_name=_("Images"), on_delete=models.CASCADE)
     name = models.CharField(_("Name"), max_length=100,)
     url = models.URLField(_("URL"), max_length=200)
-    img = models.ForeignKey('Img', verbose_name=_("Image"), on_delete=models.SET_NULL, null=True, blank=True, related_name='cards')
+    img = models.ManyToManyField('Img', verbose_name=_("Image"),blank=True, related_name='cards')
 
     class Meta:
         verbose_name = _("Card")
@@ -76,5 +77,4 @@ class Presentation(models.Model):
 
     def __str__(self):
         return self.name
-
 

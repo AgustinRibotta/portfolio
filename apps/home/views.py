@@ -14,5 +14,4 @@ def home(request):
         'colaboraciones': presentations[6] if len(presentations) > 6 else None,
         'certificaciones': presentations[7] if len(presentations) > 7 else None,
     }
-
     return render(request, 'home.html', context)

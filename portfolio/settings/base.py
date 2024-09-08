@@ -26,7 +26,9 @@ LOCAL_APPS = [
     'apps.home',
 ]
 
-THRY_PARTY_APPS = []
+THRY_PARTY_APPS = [
+    'django_extensions'
+]
 
 INSTALLED_APPS += LOCAL_APPS + THRY_PARTY_APPS
 

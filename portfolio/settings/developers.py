@@ -3,7 +3,7 @@ from decouple import config
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 DATABASES = {
     'default': {
@@ -12,9 +12,9 @@ DATABASES = {
     }
 }
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Rome'
 
 
 STATIC_URL = '/static/'

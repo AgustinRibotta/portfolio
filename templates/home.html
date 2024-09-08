@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -145,32 +145,39 @@
                 <p class="text-stack mt-4">{{sobre_mi.description}}</p>
                 <!-- Columna izquierda -->
                 <div class="col-lg-12 col-md-12 text-left">
-
                     <!-- Apartado Stack -->
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h2 class=" section-title">{{stack.name}}</h3>
+                            <h2 class="section-title">{{stack.name}}</h2>
+                            <!-- Grid de iconos para 'stack.imgs.all' -->
                             <div class="icon-grid mt-4">
-                                {% for icon in stack.imgs.all %}
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon me-2">
-                                    <p class="mb-0">{{icon.name}}</p>
+                                <div class="row g-1"> <!-- Ajusta el espaciado entre las columnas -->
+                                    {% for icon in stack.imgs.all %}
+                                    <div class="col-2 text-center mb-1"> <!-- Reducir margen inferior -->
+                                        <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon mb-1"> <!-- Reducir espacio entre el ícono y el nombre -->
+                                        <p class="mb-0">{{icon.name}}</p>
+                                    </div>
+                                    {% endfor %}
                                 </div>
-                                {% endfor %}
                             </div>
+
+                            <!-- Grid de iconos para 'herramientas.imgs.all' -->
                             <div class="icon-grid mt-4">
-                                {% for icon in herramientas.imgs.all %}
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon me-2">
-                                    <p class="mb-0">{{icon.name}}</p>
+                                <div class="row g-1"> <!-- Ajusta el espaciado entre las columnas -->
+                                    {% for icon in herramientas.imgs.all %}
+                                    <div class="col-2 text-center mb-1"> <!-- Reducir margen inferior -->
+                                        <img src="{{icon.img.url}}" alt="Icono de {{icon.name}}" class="tech-icon mb-1"> <!-- Reducir espacio entre el ícono y el nombre -->
+                                        <p class="mb-0">{{icon.name}}</p>
+                                    </div>
+                                    {% endfor %}
                                 </div>
-                                {% endfor %}
                             </div>
                         </div>
                     </div>
 
+                    
                     <!-- Apartado Complementos -->
-                    <div class="row mt-5">
+                    {% comment %} <div class="row mt-5">
                         <div class="col-12">
                             <h3 class="section-title">{{complementos.name}}</h3>
                             <div class="icon-grid mt-4 mb-5">
@@ -183,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
 
                 <!-- Columna derecha -->
                 {% comment %} <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
@@ -198,35 +205,28 @@
     <!-- Mis Proyectos -->
     <section id='proyectos' class="section-2">
         <div class="container">
-            <h2 class="section-title text-center mb-4">Mis Proyectos</h2>
+            <h2 class="section-title text-center mb-4">{{proyectos.name}}</h2>
             <div class="row gap-4 justify-content-center">
-
-                <!-- Tarjeta 1 -->
-                <div class="col-md-3 mb-3">
-                    <div class="cards ">
-                        <img src="../assets/img/8cuKqx5.png" class="card-img-top" alt="Imagen del Proyecto 1">
-                        <div class="card-body text-center mt-3">
-                            <div class="d-flex flex-wrap gap-1 justify-content-center mb-3">
-                                <img src="../assets/Iconos/py.svg" alt="Icono de Tecnología 1" width="40px"
-                                    height="40px" class="mx-2">
-                                <img src="../assets/Iconos/PostgreSQL-Dark.svg" alt="Icono de Tecnología 2" width="40px"
-                                    height="40px" class="mx-2">
-                                <img src="../assets/Iconos/HTML.svg" alt="Icono de Tecnología 3" width="40px"
-                                    height="40px" class="mx-2">
-                                <img src="../assets/Iconos/CSS.svg" alt="Icono de Tecnología 4" width="40px"
-                                    height="40px" class="mx-2">
-                                <img src="../assets/Iconos/JavaScript.svg" alt="Icono de Tecnología 4" width="40px"
-                                    height="40px" class="mx-2">
-
+                <!-- Tarjeta -->
+                {% for proyecto in proyectos.cards.all %}
+                <div class="col-md-3 mb-2">
+                    <div class="cards">
+                        <img class="card-img-top" src="{{proyecto.front_page.img.url}}" alt="Proyecto nombre: {{proyecto.name}}">
+                        <div class="card-body text-center mt-1">
+                            <div class="d-flex flex-wrap gap-3 justify-content-center mb-2">
+                                {% for img in proyecto.img.all %}
+                                    <div class="d-flex flex-column align-items-center">
+                                        <img src="{{img.img.url}}" alt="Icono de {{img.name}}" class="tech-icon">
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="card-footer text-center pb-1">
-                            <a href="https://github.com/tu-repositorio" class="btn btn-secondary" target="_blank">Ver en
-                                GitHub</a>
+                            <a href="{{proyecto.url}}" class="btn btn-secondary" target="_blank">Ver en GitHub</a>
                         </div>
                     </div>
                 </div>
-
+                {% endfor %}
             </div>
         </div>
     </section>

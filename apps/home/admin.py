@@ -3,12 +3,15 @@ from .models import *
 from django.utils.html import format_html
 
 list_models =[
-    Card,
     Menssage
     ]
 
 # Register your models here.
 admin.site.register(list_models)
+
+@admin.register(Card)
+class CardAdmin(admin.ModelAdmin):
+   filter_horizontal = ('img',)  
 
 @admin.register(Img)
 class ImgAdmin(admin.ModelAdmin):
@@ -23,10 +26,11 @@ class ImgAdmin(admin.ModelAdmin):
 @admin.register(Presentation)
 class PresentationAdmin(admin.ModelAdmin):
     list_display = ('name', 'short_description')
-    filter_horizontal = ('cards', 'imgs')  # Mejora la interfaz para campos ManyToMany
-    search_fields = ('name', 'description')  # Permite buscar por nombre y descripción
+    filter_horizontal = ('cards', 'imgs')  
+    search_fields = ('name', 'description') 
 
     def short_description(self, obj):
-        return format_html('<span>{}</span>', obj.description[:50])  # Muestra una vista previa de la descripción
+        return format_html('<span>{}</span>', obj.description[:50])  
     
     short_description.short_description = 'Description'
+
