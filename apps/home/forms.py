@@ -2,8 +2,8 @@ from django import forms
 from .models import Menssage
 
 
-class MeessageFromForm(forms.ModelForm):
+class MeessageForm(forms.ModelForm):
     
     class Meta:
         model = Menssage
-        fields = ("__al__",)
+        fields = ['name', 'email', 'menssage']

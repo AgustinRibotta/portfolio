@@ -12,6 +12,22 @@
 </head>
 
 <body>
+    <!-- Alerta de mensaje enviado -->
+    {% if messages %}
+    <div class="fixed-alert-container">
+        {% for message in messages %}
+        <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+                <use xlink:href="#check-circle-fill"/>
+            </svg>
+            <div>
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
 
     <!-- Barra de Navegación -->
     <!-- Navbar -->
@@ -87,18 +103,18 @@
                 <div class="modal-body">
                     <div class="container">
                         <h2 class="section-title text-center mb-4">Contáctame</h2>
-                        <form id="contactForm" action="/enviar-formulario" method="POST">
+                            <form id="contactForm"  action="/enviar-formulario/"  method="POST">{% csrf_token %}
                             <div class="form-group">
                                 <label for="name">Nombre</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Correoeo Electrónico</label>
+                                <label for="email">Correo Electrónico</label>
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                                <textarea id="message" name="menssage" class="form-control" rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-secondary mt-2">Enviar</button>
                         </form>
@@ -141,14 +157,14 @@
     <main id="stack" class="main">
         <div class="container">
             <div class="row align-items-center">
-                <h2 class="section-title">{{sobre_mi.name}}</h2>
+                {% comment %} <h2 class="section-title">{{sobre_mi.name}}</h2> {% endcomment %}
                 <p class="text-stack mt-4">{{sobre_mi.description}}</p>
                 <!-- Columna izquierda -->
                 <div class="col-lg-12 col-md-12 text-left">
                     <!-- Apartado Stack -->
                     <div class="row mt-5">
                         <div class="col-12">
-                            <h2 class="section-title">{{stack.name}}</h2>
+                            <h2 class="section-title ">{{stack.name}}</h2>
                             <!-- Grid de iconos para 'stack.imgs.all' -->
                             <div class="icon-grid mt-4">
                                 <div class="row g-1"> <!-- Ajusta el espaciado entre las columnas -->
@@ -200,7 +216,6 @@
             </div>
         </div>
     </main>
-
 
     <!-- Mis Proyectos -->
     <section id='proyectos' class="section-2">
@@ -301,7 +316,7 @@
     <!-- Certificaciones -->
     <section id="certificaciones" class="section-4">
         <div class="container text-center">
-            <h2>{{ certificaciones.name }}</h2>
+            <h2 class="section-title" >{{ certificaciones.name }}</h2>
             <div class="row mt-5">
                 <!-- Tarjeta de Certificación -->
                 {% for certificacion in certificaciones.imgs.all %}

@@ -1,10 +1,10 @@
 from django.urls import path, include
 from . import views
 
-
 app_name = "home"
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home, name='home_page'),
+    path('enviar-formulario/', views.enviar_formulario, name='enviar_formulario'),
 ] 
 

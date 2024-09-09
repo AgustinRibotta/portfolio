@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Presentation
+from .forms import MeessageForm 
 
 def home(request):
     presentations = Presentation.objects.all()[:8]  
@@ -15,3 +18,17 @@ def home(request):
         'certificaciones': presentations[7] if len(presentations) > 7 else None,
     }
     return render(request, 'home.html', context)
+
+
+def enviar_formulario(request):
+    
+    if request.method == 'POST':
+        form = MeessageForm(request.POST)
+        if form.is_valid():
+            form.save()  
+            messages.success(request, '¡Tu mensaje ha sido enviado con éxito!')  
+            return redirect('home:home_page')  
+    else:
+        form = MeessageForm()
+
+    return render(request, 'contact_form.html', {'form': form})

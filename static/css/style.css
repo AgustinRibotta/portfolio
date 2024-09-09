@@ -155,7 +155,7 @@ img {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     border-bottom: 3px solid #333;
-    display: inline-block;
+    /* display: inline-block; */
     padding-bottom: 0.2rem;
 }
 
@@ -360,4 +360,34 @@ img {
     background-color: #0c0c0c;
     min-height: 100px;
     padding: 10px;
+}
+
+
+/* ---------------------------------- */
+/* Alerta  */
+/* ---------------------------------- */
+
+.fixed-alert-container {
+    position: fixed;
+    top: 50px; 
+    right: 20px; 
+    max-width: 300px; 
+    z-index: 1050;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem; 
+    font-size: 0.75rem; 
+    margin-bottom: 0.5rem; 
+}
+
+.alert svg {
+    width: 1.5rem; 
+    height: 1.5rem;
+}
+
+.alert .btn-close {
+    margin-left: auto; 
 }
