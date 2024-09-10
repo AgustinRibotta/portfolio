@@ -52,6 +52,7 @@ class Card(models.Model):
     front_page = models.ForeignKey("Img", verbose_name=_("Images"), on_delete=models.CASCADE)
     name = models.CharField(_("Name"), max_length=100,)
     url = models.URLField(_("URL"), max_length=200)
+    url_web = models.URLField(_("URL"), max_length=200, blank=True, null=True)
     img = models.ManyToManyField('Img', verbose_name=_("Image"),blank=True, related_name='cards')
 
     class Meta:

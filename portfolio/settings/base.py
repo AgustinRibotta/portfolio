@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 
 LOCAL_APPS = [
     'apps.home',
+    'apps.homeItaliano',
 ]
 
 THRY_PARTY_APPS = [

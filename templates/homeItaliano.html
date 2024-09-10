@@ -48,9 +48,10 @@
                         <img src="{% static 'images/es.svg' %}" alt="España" width="24" height="16">
                     </a>
                 </div>
+
                 <!-- Botón de contacto -->
                 <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    Contacto
+                    Contatto
                 </button>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -58,14 +59,12 @@
                 </button>
             </div>
         </div>
-
+    
         <!-- Offcanvas Menu -->
-        <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -73,35 +72,36 @@
                         <a class="nav-link active text-secondary" aria-current="page" href="#peronal">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#stack">Sobre mí</a>
+                        <a class="nav-link text-secondary" href="#stack">Su di me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#proyectos">Proyectos</a>
+                        <a class="nav-link text-secondary" href="#proyectos">Progetti</a>
                     </li>
+                    <!-- Commented out item -->
                     {% comment %} <li class="nav-item">
                         <a class="nav-link text-secondary" href="#colaboraciones">Colaboraciones</a>
                     </li> {% endcomment %}
                     <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#certificaciones">Certificaciones</a>
+                        <a class="nav-link text-secondary" href="#certificaciones">Certificazioni</a>
                     </li>
                     <li class="nav-item mt-2">
-                        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-                            data-bs-target="#contactModal">
-                            Contacto
+                        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Contatto
                         </button>
                     </li>
                 </ul>
                 <div class="d-flex mt-4">
                     {% for icon in principal.imgs.all %}
                     <a href="{{icon.url}}" target="_blank" class="mx-2 links">
-                        <img src="{{icon.img.url}}" alt="Ícono de GitHub" width="40px" height="40px"
-                            >
+                        <img src="{{icon.img.url}}" alt="Ícono de GitHub" width="40px" height="40px">
                     </a>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </nav>
+    
+
     <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -112,21 +112,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <h2 class="section-title text-center mb-4">Contáctame</h2>
-                            <form id="contactForm"  action="/enviar-formulario/"  method="POST">{% csrf_token %}
+                        <h2 class="section-title text-center mb-4">Contattami</h2>
+                            <form id="contactForm"  action="/enviar-formulario-italiano/"  method="POST">{% csrf_token %}
                             <div class="form-group">
-                                <label for="name">Nombre</label>
+                                <label for="name">Nome</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Correo Electrónico</label>
+                                <label for="email">Email</label>
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="message">Mensaje</label>
+                                <label for="message">Messaggio</label>
                                 <textarea id="message" name="menssage" class="form-control" rows="4" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-secondary mt-2">Enviar</button>
+                            <button type="submit" class="btn btn-secondary mt-2">Invia</button>
                         </form>
                     </div>
                 </div>
@@ -217,6 +217,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Columna derecha -->
                 {% comment %} <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
                     <img src="https://picsum.photos/id/237/400/400" alt="Imagen Descriptiva"
@@ -354,9 +355,9 @@
                 </div>
                 <div class="modal-footer">
                     <a id="validateButton" href="" target="_blank">
-                        <button type="button" class="btn btn-secondary">Validar</button>
+                        <button type="button" class="btn btn-secondary">Valida</button>
                     </a>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudere</button>
                 </div>
             </div>
         </div>
@@ -372,7 +373,7 @@
             {% endfor %}
             <button type="button" class="btn btn-outline-light mb-1 mx-2" data-bs-toggle="modal"
                 data-bs-target="#contactModal">
-                Contacto
+                Contatto
             </button>
         </div>
     </footer>
