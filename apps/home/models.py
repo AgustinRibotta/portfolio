@@ -38,7 +38,7 @@ class Img(models.Model):
     name = models.CharField(max_length=50)
     img = models.FileField(upload_to='images/', validators=[validate_file_size, validate_file_extension])
     url = models.URLField(_("URL"), max_length=200, blank=True, null=True)
-
+    email = models.EmailField(max_length=250, blank=True, null=True)
     class Meta:
         verbose_name = "Img"
         verbose_name_plural = "Imgs"
